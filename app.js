@@ -5,9 +5,9 @@ var app = express();
 const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
 const {WebhookClient,Card,} = require('dialogflow-fulfillment');
-const App = express().use(bodyParser.json());
+const app = express().use(bodyParser.json());
 
-App.post('/fulfillment', functions.https.onRequest((request, response) => {
+app.post('/fulfillment', functions.https.onRequest((request, response) => {
     const agent = new WebhookClient({ request, response });
      function welcome(agent) {
       agent.add(`Welcome to my agent in Heroku!`);
