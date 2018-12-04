@@ -1,7 +1,7 @@
 //This section list the required libraries
 var express = require("express");
 //Create an instance of express server
-var app = express();
+//var app = express();
 const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
 const {WebhookClient,Card,} = require('dialogflow-fulfillment');
