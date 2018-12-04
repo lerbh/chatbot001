@@ -4,6 +4,18 @@ var express = require("express");
 const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
 const {WebhookClient,Card,} = require('dialogflow-fulfillment');
+
+var admin = require('firebase-admin');
+
+var serviceAccount = require('./serviceAccountKey.json');
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+  databaseURL: 'https://myagent-9853e.firebaseio.com'
+});
+
+
+//Create an instance of express server
 const app = express().use(bodyParser.json());
 
 app.post('/fulfillment', functions.https.onRequest((request, response) => {
@@ -29,7 +41,7 @@ app.post('/fulfillment', functions.https.onRequest((request, response) => {
         agent.add('Today is a good day');
 
     }
-    
+
     // Run the proper function handler based on the matched Dialogflow intent name
       let intentMap = new Map();
       intentMap.set('Default Welcome Intent', welcome);
