@@ -1,4 +1,5 @@
 //This section list the required libraries
+
 var express = require("express");
 const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
@@ -22,13 +23,18 @@ app.post('/fulfillment', functions.https.onRequest((request, response) => {
     function fallback(agent) {
         agent.add(`I didn't understand`);
         agent.add(`I'm sorry, can you try again?`);
-      }
-     
-     
-      // Run the proper function handler based on the matched Dialogflow intent name
+}
+
+    function telldatefunction(agent){
+        agent.add('Today is a good day');
+
+    }
+    
+    // Run the proper function handler based on the matched Dialogflow intent name
       let intentMap = new Map();
       intentMap.set('Default Welcome Intent', welcome);
       intentMap.set('Default Fallback Intent', fallback);
+      intentMap.set('TellDateIntent', telldatefunction);
       agent.handleRequest(intentMap);
      })
      );
