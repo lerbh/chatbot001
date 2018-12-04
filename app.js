@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
 const {WebhookClient,Card,} = require('dialogflow-fulfillment');
 
+const db = admin.firestore();
+
 var admin = require('firebase-admin');
 
 var serviceAccount = require('./serviceAccountKey.json');
