@@ -1,5 +1,4 @@
 //This section list the required libraries
-
 var express = require("express");
 const bodyParser = require('body-parser');
 const functions = require('firebase-functions');
