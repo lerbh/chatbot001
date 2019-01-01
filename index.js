@@ -4,11 +4,14 @@ var express = require("express");
 var app = express();
 
 app.get("/",function(req,res){
-    res.send('<h1>This is my web app21</h1>');
+    res.send('<h1>This is my web app210 </h1>');
 });
 app.get("/something",function(request,respond){
     respond.send('<h1> This is ler trying to do something</h1>');
-})
+});
+app.get("/ler",function(request,respond){
+    respond.send('<h1> Hi ler. What can I do for you.</h1>');
+});
 //Start the express server to listen to a port in the server
 var listener = app.listen(
    process.env.PORT,
